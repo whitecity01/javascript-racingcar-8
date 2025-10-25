@@ -9,6 +9,12 @@ export const CAR_VALIDATE = {
   MIN_NAME_LEN: 1,
 };
 
+export const CAR_MOVE_CONDITIONS = {
+  RANDOM_MIN: 0,
+  RANDOM_MAX: 9,
+  MOVE_THRESHOLD: 4,
+};
+
 const prefixError = (msg) => `[ERROR] ${msg}`;
 
 export const ERRORS = {
@@ -16,4 +22,5 @@ export const ERRORS = {
   CAR_NAME_TOO_SHORTS: prefixError(
     '자동차 이름은 최소 1글자 이상만 가능합니다.',
   ),
+  INVALID_ROUND_COUNT: prefixError('시도 횟수는 양의 정수를 입력해주세요'),
 };
