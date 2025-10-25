@@ -17,7 +17,7 @@ class Racing {
 
   start() {
     this.moveAllRound();
-    const winners = []; // TODO : 우승자 계산 로직 필요
+    const winners = this.getWinners();
 
     return { logs: this.logs, winners };
   }
@@ -41,6 +41,18 @@ class Racing {
       .join('\n');
 
     this.logs.push(roundLog);
+  }
+
+  getWinners() {
+    const maxMove = this.getMaxMove();
+    const winners = this.cars
+      .filter(({ move }) => move === maxMove)
+      .map(({ name }) => name);
+    return winners;
+  }
+
+  getMaxMove() {
+    return Math.max(...this.cars.map((car) => car.move));
   }
 }
 

@@ -11,7 +11,7 @@ class App {
 
     const racing = new Racing(cars, roundCount);
 
-    const result = racing.start(); // TODO : 레이싱 결과 반환
+    const result = racing.start();
     ConsoleIO.outputRacingResult(result);
   }
 }
