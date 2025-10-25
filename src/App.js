@@ -11,8 +11,8 @@ class App {
 
     const racing = new Racing(cars, roundCount);
 
-    const result = racing.start();
-    ConsoleIO.outputRacingResult(result);
+    const { racingLogs, winners } = racing.start();
+    ConsoleIO.outputRacingResult(racingLogs, winners);
   }
 }
 

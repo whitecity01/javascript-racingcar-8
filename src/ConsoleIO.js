@@ -14,8 +14,15 @@ class ConsoleIO {
     return roundCount;
   }
 
-  static outputRacingResult(result = '') {
-    // TODO : 요구된 포맷으로 결과 포맷팅 필요
+  static outputRacingResult(racingLogs, winners) {
+    const result = [
+      '',
+      IO_MESSAGES.OUTPUT_LOG_PREFIX,
+      racingLogs.join('\n\n'),
+      '',
+      `${IO_MESSAGES.OUTPUT_WINNER_PREFIX}${winners.join(', ')}`,
+    ].join('\n');
+
     Console.print(result);
   }
 }
