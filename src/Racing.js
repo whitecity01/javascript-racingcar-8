@@ -6,6 +6,8 @@ class Racing {
 
     this.validateRoundCount(roundCount);
     this.roundCount = roundCount;
+
+    this.logs = [];
   }
 
   validateRoundCount(roundCount) {
@@ -16,14 +18,14 @@ class Racing {
   start() {
     this.moveAllRound();
     const winners = []; // TODO : 우승자 계산 로직 필요
-    const logs = []; // TODO : 로깅 기능 필요
 
-    return { logs, winners };
+    return { logs: this.logs, winners };
   }
 
   moveAllRound() {
     while (this.roundCount-- > 0) {
       this.moveOneRound();
+      this.recordRoundLog();
     }
   }
 
@@ -31,6 +33,14 @@ class Racing {
     for (const car of this.cars) {
       car.moveWithRandom();
     }
+  }
+
+  recordRoundLog() {
+    const roundLog = this.cars
+      .map(({ name, move }) => `${name} : ${'-'.repeat(move)}`)
+      .join('\n');
+
+    this.logs.push(roundLog);
   }
 }
 
