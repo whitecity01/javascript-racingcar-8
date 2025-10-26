@@ -7,7 +7,7 @@ class Racing {
     this.validateRoundCount(roundCount);
     this.roundCount = roundCount;
 
-    this.logs = [];
+    this.racingLogs = [];
   }
 
   validateRoundCount(roundCount) {
@@ -19,7 +19,7 @@ class Racing {
     this.moveAllRound();
     const winners = this.getWinners();
 
-    return { logs: this.logs, winners };
+    return { racingLogs: this.racingLogs, winners };
   }
 
   moveAllRound() {
@@ -40,7 +40,7 @@ class Racing {
       .map(({ name, move }) => `${name} : ${'-'.repeat(move)}`)
       .join('\n');
 
-    this.logs.push(roundLog);
+    this.racingLogs.push(roundLog);
   }
 
   getWinners() {
